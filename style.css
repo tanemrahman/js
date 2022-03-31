@@ -1,4 +1,33 @@
+.navbar {
+  background-color: #fcdc00;
+}
 a.navbar-brand {
-	font-size: 2rem;
-    line-height: 0;
+  font-size: 2rem;
+  line-height: 0;
+}
+.sliderSection {
+  position: relative;
+}
+.overlay {
+  background-color: rgba(35, 37, 47, 0.7);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#about {
+  background-color: #ffffff;
+}
+
+#skills {
+  background-color: #F8F9FA;
+}
+
+#footer {
+  background-color: #fcdc00;
 }
