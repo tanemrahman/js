@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Email Validation</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var email = prompt("Enter your email");
+		var pattern = /^[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.][a-zA-Z]{2,5}$/;
+		var ok = pattern.test(email);
+
+		if(ok) {
+			document.write("Valid Email Address");
+		} else {
+			document.write("Invalid Email Address");
+		}
+	</script>
+</body>
+</html>
