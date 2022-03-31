@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login - Form Validation</title>
+	<style type="text/css">
+		#main {
+			width: 30%;
+			margin: 50px auto;
+			background: lightblue;
+			padding: 10px 50px 50px 50px;
+			border-radius: 10px;
+		}
+
+		#main .login-area h1.title{
+			text-align: center;
+		}
+
+		.login-area .field input[type=text] {
+			width: 100%;
+			padding: 10px;
+			/*margin-bottom: 5px;*/
+			box-sizing: border-box;
+		}
+
+		.login-area .field input[type=submit],
+		.login-area .field input[type=reset]{
+			padding: 10px 30px;
+		}
+
+		label{
+			margin-bottom: 10px;
+		}
+
+		p#user-msg,
+		p#email-msg {
+		    margin: 10px 0px;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		function validation() {
+			// Start Username Validation
+			var uname = document.getElementById("username").value;
+
+			if (uname.length>8) {
+				document.getElementById("user-msg").innerHTML="Username should not more then 8 charecter.";
+				document.getElementById("user-msg").style.color = "red";
+			} else if (uname.length==0) {
+				document.getElementById("user-msg").innerHTML="You haven not typed any usernames.";
+				document.getElementById("user-msg").style.color = "red";
+			} else {
+				document.getElementById("user-msg").innerHTML="This is a valid Username.";
+				document.getElementById("user-msg").style.color = "green";
+			}
+
+			// Start Email Validation
+			var	uemail = document.getElementById("email").value;
+			var emailexpre = /^[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.][a-zA-Z]{2,5}$/;
+			var okemail = emailexpre.test(uemail);
+
+			if (okemail == true) {
+				document.getElementById("email-msg").innerHTML="This is a valid email address.";
+				document.getElementById("email-msg").style.color = "green";
+			} else if (uemail.length == 0) {
+				document.getElementById("email-msg").innerHTML="You haven not typed any email address.";
+				document.getElementById("email-msg").style.color = "red";
+			} else {
+				document.getElementById("email-msg").innerHTML="This is a invalid email address";
+				document.getElementById("email-msg").style.color = "red";
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<div id="main">
+		<div class="login-area">
+			<h1 class="title">Login</h1>
+			<div class="field">
+				<label>User Name</label><br>
+				<input type="text" name="username" id="username">
+			</div>
+			<p id="user-msg"></p>
+			<div class="field">
+				<label>Email</label><br>
+				<input type="text" name="email" id="email">
+			</div>
+			<p id="email-msg"></p>
+			<div class="field">
+				<input type="submit" name="submit" value="Login" onclick="validation()">
+				<input type="reset" name="reset" value="Cancel">
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
