@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Open New Window</title>
+	<link rel='stylesheet' type='text/css' href='css/style.css'>
+	<script type="text/javascript">
+		function openWindow() {
+			var name = document.form1.name.value;
+			var email = document.form1.email.value;
+			var gender = document.form1.gender.value;
+			var course = document.form1.courses.value;
+			var subjects = [];
+
+			for (var i = 0; i < document.form1.subject.length; i++) {
+				if (document.form1.subject[i].checked) {
+					//subjects += document.form1.subject[i].value;
+					subjects.push(document.form1.subject[i].value);
+				}
+			}
+
+			var subject = subjects.join(", ");
+
+			var a = window.open("","","width:500, height:600");
+
+			with(a.document) {
+				write("<!DOCTYPE html>");
+				write("<html>");
+				write("<head>");
+				write("<meta charset='utf-8'>");
+				write("<meta name='viewport' content='width=device-width, initial-scale=1'>");
+				write("<title>New Window</title>");
+				write("<link rel='stylesheet' type='text/css' href='css/new_window_style.css'>");
+				write("</head>");
+				write("<body>");
+				write("Name: "+name+"<br>");
+				write("Email: "+email+"<br>");
+				write("Gender: "+gender+"<br>");
+				write("Subject: "+subject+"<br>");
+				write("Course: "+course+"<br>");
+				write("<input type='button' value='Close' onclick='self.close()'>");
+				write("</body>");
+				write("</html>");
+			}
+		}
+	</script>
+</head>
+<body>
+	<form method="POST" name="form1">
+		<label>Name</label><br>
+		<input type="text" name="name"><br>
+
+		<label>Email</label><br>
+		<input type="email" name="email"><br>
+
+		<label>Gender</label><br>
+		<input type="radio" name="gender" value="Male">Male
+		<input type="radio" name="gender" value="Female">Female<br>
+
+		<label>Subject</label><br>
+		<input type="checkbox" name="subject" value="HTML">HTML
+		<input type="checkbox" name="subject" value="JS">JS
+		<input type="checkbox" name="subject" value="CSS">CSS<br>
+
+		<label>Courses</label><br>
+		<select name="courses">
+			<option value="WDPF">WDPF</option>
+			<option value="CS">CS</option>
+			<option value="GAVE">GAVE</option>
+			<option value="JEE">JEE</option>
+		</select><br>
+
+		<input type="submit" name="submit" value="Submit" onclick="openWindow()">
+		<input type="reset" name="reset" value="Reset">
+	</form>
+</body>
+</html>

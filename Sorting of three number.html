@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sorting of three number.</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let a = parseInt(prompt("Enter 1st number!"));
+		let b = parseInt(prompt("Enter 2nd number!"));
+		let c = parseInt(prompt("Enter 3rd number!"));
+
+		let temp = "";
+
+		if (a>b) {
+			temp = a;
+			a = b;
+			b = temp;
+		}
+
+		if (a>c) {
+			temp = a;
+			a = c;
+			c = temp;
+		}
+
+		if (b>c) {
+			temp = b;
+			b = c;
+			c = temp;
+		}
+
+		
+
+		document.write(a+","+b+","+c)
+	</script>
+</body>
+</html>

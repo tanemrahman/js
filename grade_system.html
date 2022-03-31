@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Grade System</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function gradeSystem(mark,total) {
+			var persent = (mark/total)*100
+
+			if (persent>=80) {
+				document.write("Your grade is: A+");
+			} else if(persent>=70) {
+				document.write("Your grade is: A")
+			} else if(persent>=60) {
+				document.write("Your grade is: A-")
+			} else if(persent>=50) {
+				document.write("Your grade is: B")
+			} else if(persent>=40) {
+				document.write("Your grade is: C")
+			} else if(persent>=33) {
+				document.write("Your grade is: D")
+			} else if(persent<33) {
+				document.write("Your grade is: F")
+			}
+		}
+
+		var mark = parseInt(prompt("Enter your mark."));
+		gradeSystem(mark, 50);
+
+		
+
+
+	</script>
+</body>
+</html>

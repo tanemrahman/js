@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Prime Number</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num = parseInt(prompt("Enter your number!"));
+
+		var testprime = true;
+
+		if (num === 1) {
+			document.write("1 is neither primer or not prime.");
+		} else if(num>1) {
+			for (var i = 2; i < num; i++) {
+				if (num % i == 0) {
+					testprime = false;
+				}
+			}
+			if (testprime) {
+				document.write(num+" is prime number.");
+			} else {
+				document.write(num+" is not prime number.");
+			}
+		} else {
+			document.write("The number you entered is not a prime number");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form Validation</title>
+	<script type="text/javascript">
+		function formValidation() {
+			var fname=document.getElementById("fname").value;
+			var lname=document.getElementById("lname").value;
+			var email=document.getElementById("email").value;
+			var pass=document.getElementById("pass1").value;
+			// var conpass=document.getElementById("pass2").value;
+
+			if (fname=="") {
+				document.getElementById("fnamemsg").innerHTML="**Fill the first name";
+				document.getElementById("fnamemsg").style.color = "red";
+				return false;
+			} else if (!isNaN(fname)) {
+				document.getElementById("fnamemsg").innerHTML="**Only Characters are allowd";
+				document.getElementById("fnamemsg").style.color = "red";
+				return false;
+			} else {
+				document.getElementById("fnamemsg").innerHTML="Valid First Name";
+				document.getElementById("fnamemsg").style.color = "green";
+			}
+
+			if (lname=="") {
+				document.getElementById("lnamemsg").innerHTML="**Fill the first name";
+				document.getElementById("lnamemsg").style.color = "red";
+				return false;
+			} else if (!isNaN(lname)) {
+				document.getElementById("lnamemsg").innerHTML="**Only Characters are allowd";
+				document.getElementById("lnamemsg").style.color = "red";
+				return false;
+			} else {
+				document.getElementById("lnamemsg").innerHTML="Valid Last Name";
+				document.getElementById("lnamemsg").style.color = "green";
+			}
+
+			// Start Email Validation
+			var emailexpre = /^[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.][a-zA-Z]{2,5}$/;
+			var okemail = emailexpre.test(email);
+
+			if (okemail == true) {
+				document.getElementById("emsg").innerHTML="Valid Email Address.";
+				document.getElementById("emsg").style.color = "green";
+			} else if (email.length == 0) {
+				document.getElementById("emsg").innerHTML="**Fill the email address";
+				document.getElementById("emsg").style.color = "red";
+				return false;
+			} else {
+				document.getElementById("emsg").innerHTML="Invalid Email Address";
+				document.getElementById("emsg").style.color = "red";
+				return false;
+			}
+
+
+			if (pass.length == 0) {
+				document.getElementById("passmsg").innerHTML="**Fill password";
+				document.getElementById("passmsg").style.color = "red";
+				return false;
+			} else if (pass.length < 8) {
+				document.getElementById("passmsg").innerHTML="**Password length must be atleast 8 characters";
+				document.getElementById("passmsg").style.color = "red";
+				return false;
+			} else if (pass.length > 15) {
+				document.getElementById("passmsg").innerHTML="**Password length should not be more than 15 characters";
+				document.getElementById("passmsg").style.color = "red";
+				return false;
+			} else {
+				alert("Your registration id created successfully");
+				document.write("Form Data has been submited");
+			}
+
+			// if (conpass=="") {
+			// 	document.getElementById("cpassmsg").innerHTML="**Fill password";
+			// 	document.getElementById("cpassmsg").style.color = "red";
+			// 	return false;
+			// } else if(pass!=conpass) {
+			// 	document.getElementById("cpassmsg").innerHTML="**Password are not same";
+			// 	document.getElementById("cpassmsg").style.color = "red";
+			// 	return false;
+			// } else {
+			// 	alert("Your registration id created successfully");
+			// 	document.write("Form Data has been submited");
+			// }
+		}
+	</script>
+</head>
+<body>
+	<h1 style="color:green;">US Software Ltd</h1>
+	<h3>Verify User Registration</h3>
+
+	<form onsubmit="return formValidation()">
+		<label>First Name*</label><br>
+		<input type="text" name="fname" id="fname" value="">
+		<span id="fnamemsg"></span><br>
+
+		<label>Last Name*</label><br>
+		<input type="text" name="lname" id="lname" value="">
+		<span id="lnamemsg"></span><br>
+
+		<label>Email*</label><br>
+		<input type="text" name="email" id="email" value="">
+		<span id="emsg"></span><br>
+
+		<label>Password*</label><br>
+		<input type="password" name="pass1" id="pass1" value="">
+		<span id="passmsg"></span><br>
+
+		<!-- <label> Confirm Password*</label><br>
+		<input type="password" name="pass2" id="pass2" value="">
+		<span id="cpassmsg"></span><br> -->
+
+		<input type="submit" name="Submit" value="Send" onclick="">
+		<input type="reset" name="reset" value="Reset">
+	</form>
+</body>
+</html>
